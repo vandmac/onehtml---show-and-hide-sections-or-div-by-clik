@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: lightslategrey;
+  font-size: 32px;
+}
+
+main-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+}
+
+section.s1 {
+  color: blue;
+  top: 100px;
+}
+
+section.s2 {
+  color: darkgreen;
+  top: 100px;
+}
+
+section.s3 {
+  color: darkred;
+  top: 100px;
+}
+
+li{
+    border: 2px solid ;
+    background-color: brown;
+}
