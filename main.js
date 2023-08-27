@@ -1,43 +1,59 @@
-const section1 = document.getElementById('s1');
-const section2 = document.getElementById('s2');
-const section3 = document.getElementById('s3');
+const navSectionIds = ['s1', 's2', 's3']; // Adjust the IDs as needed
+const navTableIds = ['home', 'feature', 'pricing', 'show-all']; // Adjust the IDs as needed
 
 const allSections = document.querySelectorAll('.sec');
-
-const nav1 = document.querySelector('#home');
-const nav2 = document.querySelector('#feature');
-const nav3 = document.querySelector('#pricing');
-const nav4 = document.querySelector('#show-all');
+const navSections = navSectionIds.map(id => document.getElementById(id));
+const navTable = navTableIds.map(id => document.querySelector(`#${id}`));
 
 function hide(elements) {
-  elements = elements.length ? elements : [elements];
-  for (let index = 0; index < elements.length; index++) {
-    elements[index].style.display = 'none';
-  }
+  elements.forEach(element => {
+    element.style.display = 'none';
+  });
 }
 
-function show(elements) {
-  elements = elements.length ? elements : [elements];
-  for (let index = 0; index < elements.length; index++) {
-    elements[index].style.display = '';
-  }
+function show(element) {
+  element.style.display = '';
 }
 
-nav1.addEventListener('click', function () {
-  hide(allSections);
-  section1.style.display = '';
+navTable.forEach((navLink, index) => {
+  navLink.addEventListener('click', () => {
+    hide(allSections);
+    show(navSections[index]);
+  });
 });
 
-nav2.addEventListener('click', function () {
-  hide(allSections);
-  section2.style.display = '';
-});
+// const navSection = [
+//   document.getElementById('s1'),
+//   document.getElementById('s2'),
+//   document.getElementById('s3'),
+// ];
 
-nav3.addEventListener('click', function () {
-  hide(allSections);
-  section3.style.display = '';
-});
+// const allSections = document.querySelectorAll('.sec');
 
-nav4.addEventListener('click', function () {
-  show(allSections);
-});
+// const navTable = [
+//   document.querySelector('#home'),
+//   document.querySelector('#feature'),
+//   document.querySelector('#pricing'),
+//   document.querySelector('#show-all'),
+// ];
+
+// function hide(elements) {
+//   elements = elements.length ? elements : [elements];
+//   for (let index = 0; index < elements.length; index++) {
+//     elements[index].style.display = 'none';
+//   }
+// }
+
+// function show(elements) {
+//   elements = elements.length ? elements : [elements];
+//   for (let index = 0; index < elements.length; index++) {
+//     elements[index].style.display = '';
+//   }
+// }
+
+// for (let elementIndex = 0; elementIndex < navTable.length; elementIndex++) {
+//   navTable[elementIndex].addEventListener('click', function () {
+//     hide(allSections);
+//     show(navSection[elementIndex]);
+//   });
+// }
